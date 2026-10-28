@@ -1,0 +1,174 @@
+/* Boot failure: the ES module graph did not load (file://, wrong root,
+ * cached error). Colours are fixed so the note is readable in either theme. */
+.boot-error {
+  border: 1px solid var(--bs-danger);
+  border-left-width: 4px;
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.25rem auto 0;
+  background: #fdf3f2;
+  color: #6f1a15;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.boot-error code, footer code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Design tokens (light tweak over Bootstrap defaults) */
+:root {
+  --bh-spacing: 8px;
+}
+
+/* General layout tweaks */
+.step-title {
+  font-weight: 600;
+}
+
+/* Advanced & debugging: a collapsed, clearly secondary section */
+.advanced-section > summary {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  color: var(--bs-secondary-color);
+  padding: .5rem .75rem;
+  border: 1px dashed var(--bs-border-color);
+  border-radius: .375rem;
+}
+
+.advanced-section > summary:hover,
+.advanced-section[open] > summary {
+  color: var(--bs-body-color);
+}
+
+.dropzone {
+  border: 2px dashed var(--bs-border-color);
+  border-radius: .5rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--bs-secondary-color);
+  transition: border-color .15s ease-in-out, background-color .15s ease-in-out;
+}
+
+.dropzone.dragover {
+  border-color: var(--bs-primary);
+  background-color: rgba(var(--bs-primary-rgb), .05);
+}
+
+/* Hide legacy areas until needed; kept IDs to preserve old JS behavior */
+#build-loading { display: none; }
+#build-download { display: none; }
+
+/* Make custom labels look like buttons when JS mutates them */
+label.custom-file-upload {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: .5rem 1rem;
+}
+
+/* Hide native file input, keep accessible via label */
+input[type="file"] {
+  display: none;
+}
+
+/* Visibility helpers */
+#selection.format { display: none; }
+
+/* Mono for any filenames shown in Output */
+.result-filename { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+/* Output log block */
+#progress-log {
+  white-space: pre-wrap;
+}
+
+/* Progress bar states */
+#progress-bar.progress-bar-starting { background-color: var(--bs-warning); }
+#progress-bar.progress-bar-running { background-color: var(--bs-primary); }
+#progress-bar.progress-bar-finished { background-color: var(--bs-success); }
+#progress-bar.progress-bar-error { background-color: var(--bs-danger); }
+
+/* Success / error highlights for dropzones */
+.dropzone.is-success {
+  border-color: var(--bs-success);
+  background-color: rgba(var(--bs-success-rgb), .05);
+}
+.dropzone.is-error {
+  border-color: var(--bs-danger);
+  background-color: rgba(var(--bs-danger-rgb), .05);
+}
+
+/* Keyboard focus states */
+.dropzone:focus-visible {
+  outline: 3px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+button:focus-visible, .btn:focus-visible, .form-select:focus-visible {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+/* Density tweaks */
+.card + .card { margin-top: 1rem; }
+
+/* ── Diff invisible-character token badges ───────────────────────────────── */
+.diff-token {
+  display: inline-block;
+  font-size: .68em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0 3px;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: help;          /* tooltip hint */
+  margin: 0 1px;
+  opacity: .9;
+  /* don't inherit the parent line's red/green colour */
+  filter: none;
+}
+
+.diff-token-soft-return {
+  background: #cce5ff;
+  color: #004085;
+  border: 1px solid #99caff;
+}
+.diff-token-para-sep {
+  background: #e2d9f3;
+  color: #432874;
+  border: 1px solid #c9b8e8;
+}
+.diff-token-tab {
+  background: #fff3cd;
+  color: #7a5700;
+  border: 1px solid #ffd966;
+  letter-spacing: .12em;
+}
+.diff-token-nbsp {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #a3d9b1;
+}
+.diff-token-zwsp,
+.diff-token-zwnj,
+.diff-token-zwj {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c2c7;
+}
+.diff-token-shy {
+  background: #fefcd0;
+  color: #635900;
+  border: 1px solid #e8e080;
+}
+.diff-token-bom {
+  background: #d6d8db;
+  color: #383d41;
+  border: 1px solid #b8bdc2;
+  font-size: .6em;
+  letter-spacing: .08em;
+}
